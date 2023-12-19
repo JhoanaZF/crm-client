@@ -43,6 +43,7 @@ export const loader = () => {
 };
 
 const Index = () => {
+  //obtener el resultado de un loader
   const clientes = useLoaderData();
   console.log(clientes);
 
