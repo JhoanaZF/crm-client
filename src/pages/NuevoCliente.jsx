@@ -12,6 +12,11 @@ export const action = async ({ request }) => {
     errores.push("Todos los campos son obligatorios");
   }
 
+  let regex = new RegExp(
+    "([!#-'*+/-9=?A-Z^-~-]+(.[!#-'*+/-9=?A-Z^-~-]+)*|\"([]!#-[^-~ \t]|(\\[\t -~]))+\")@([!#-'*+/-9=?A-Z^-~-]+(.[!#-'*+/-9=?A-Z^-~-]+)*|[[\t -Z^-~]*])"
+  );
+
+  //retorna datos si hay errores
   if (Object.keys(errores).length) {
     return errores;
   }
