@@ -1,15 +1,15 @@
 import { useLoaderData } from "react-router-dom";
 import Cliente from "../components/Cliente";
+import { obtenerClientes } from "../data/Clientes";
 
-// export const loader = async () => {
-//   const data = await fetchData();
-//   console.log(data);
-// };
+export const loader = () => {
+  const clientes = obtenerClientes();
+  return clientes;
+};
 
 const Index = () => {
   //obtener el resultado de un loader
   const clientes = useLoaderData();
-  console.log(clientes);
 
   return (
     <>
