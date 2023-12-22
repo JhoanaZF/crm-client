@@ -8,6 +8,7 @@ import NuevoCliente, {
 } from "./pages/NuevoCliente";
 import Index, { loader as clientesLoader } from "./pages/Index";
 import ErrorBoundary from "./components/ErrorBoundary";
+import EditarCliente from "./pages/EditarCliente";
 
 const router = createBrowserRouter([
   {
@@ -24,6 +25,10 @@ const router = createBrowserRouter([
         path: "/clientes/nuevo",
         element: <NuevoCliente />,
         action: nuevoClienteAction, //procesar formulario
+      },
+      {
+        path: "/clientes/:clientesId/editar",
+        element: <EditarCliente />,
       },
     ],
   },
