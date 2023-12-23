@@ -8,7 +8,9 @@ import NuevoCliente, {
 } from "./pages/NuevoCliente";
 import Index, { loader as clientesLoader } from "./pages/Index";
 import ErrorBoundary from "./components/ErrorBoundary";
-import EditarCliente from "./pages/EditarCliente";
+import EditarCliente, {
+  loader as editarClienteclienteLoader,
+} from "./pages/EditarCliente";
 
 const router = createBrowserRouter([
   {
@@ -29,6 +31,8 @@ const router = createBrowserRouter([
       {
         path: "/clientes/:clientesId/editar",
         element: <EditarCliente />,
+        loader: editarClienteclienteLoader,
+        errorElement: <ErrorBoundary />,
       },
     ],
   },
