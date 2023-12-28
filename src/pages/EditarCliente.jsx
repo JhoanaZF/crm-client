@@ -1,7 +1,6 @@
-import { Form } from "react-router-dom";
+import { Form, useLoaderData, useNavigate } from "react-router-dom";
 import { obtenerCliente } from "../data/Clientes";
 import Formulario from "../components/Formulario";
-import Error from "../components/Error";
 
 export const loader = async ({ params }) => {
   const cliente = await obtenerCliente(params.clientesId);
@@ -16,11 +15,13 @@ export const loader = async ({ params }) => {
 };
 
 const EditarCliente = () => {
+  const navigate = useNavigate();
+  const cliente = useLoaderData();
   return (
     <>
-      <h1 className='font-black text-4xl text-blue-900'>Nuevo Cliente</h1>
+      <h1 className='font-black text-4xl text-blue-900'>Editar Cliente</h1>
       <p className='mt-3'>
-        Llena todo los campos para registar un nuevo cliente
+        A continuación podras modificar los datos de un cliente
       </p>
 
       <div className='flex justify-end'>
@@ -31,13 +32,10 @@ const EditarCliente = () => {
         </button>
       </div>
       <div className='bg-white shadow rounded-md md:w-3/4 mx-auto px-5 py-10 mt-20'>
-        {errores?.length &&
-          errores.map((error, i) => <Error key={i}>{error}</Error>)}
         <Form
           method='post'
-          // action='/clientes/nuevo'
           noValidate>
-          <Formulario />
+          <Formulario cliente={cliente} />
           <input
             type='submit'
             className='mt-5 w-full bg-blue-800 p-3 uppercase font-bold text-white text-lg'

@@ -32,11 +32,9 @@ export const action = async ({ request }) => {
 const NuevoCliente = () => {
   //obtener el resultado de un action
   const errores = useActionData();
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
   console.log(errores);
-  return (
-   
-  );
+  return <>hola</>;
 };
 
 export default NuevoCliente;
